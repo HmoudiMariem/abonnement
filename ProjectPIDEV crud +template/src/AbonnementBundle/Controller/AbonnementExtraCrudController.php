@@ -1,0 +1,67 @@
+<?php
+
+namespace AbonnementBundle\Controller;
+
+use AbonnementBundle\Entity\Abonnementextra;
+use AbonnementBundle\Form\AbonnementextraType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
+class AbonnementExtraCrudController extends Controller
+{
+    public function readAction()
+    {
+        $abonnementextra=$this->getDoctrine()->getRepository(Abonnementextra::class)->findAll();
+        return $this->render('@Abonnement/AbonnementExtra/read.html.twig', array('abonnementextra'=>$abonnementextra
+        ));
+    }
+    public function createAction(Request $request)
+    {    //1-form
+        //1-a Objet vide
+        $abonnementextra=new Abonnementextra();
+        //1-b create form
+        $form=$this->createForm(AbonnementextraType::class,$abonnementextra);
+        //2- recuperation des données
+        $form=$form->handleRequest($request);
+        if ($form->isValid()){
+            //3-sauvegarde des donnees (utilisation de l'orm pour la cnx avec la bd)
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($abonnementextra);
+            $em->flush();
+            return $this->redirectToRoute('read');
+        }
+        //1-c:envoi du formulaire
+        return $this->render('@Abonnement/AbonnementExtra/create.html.twig', array('f'=>$form->createView()
+        ));
+    }
+
+    public function deleteAction($nCartemembre)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $abonnementextra=$em->getRepository(Abonnementextra::class)->find($nCartemembre);
+        $em->remove($abonnementextra);
+        $em->flush();
+        return $this->redirectToRoute('read');
+    }
+
+    public function updateAction($nCartemembre,Request $request)
+    {
+        //1-formulaire
+        //1.a Objet
+        $em=$this->getDoctrine()->getManager();
+        $abonnementextra=$em->getRepository(Abonnementextra::class)->find($nCartemembre);
+        //1.b create form
+        $form=$this->createForm(AbonnementextraType::class,$abonnementextra);
+        //2
+        $form=$form->handleRequest($request);
+        //3
+        if($form->isValid()){
+            $em->flush();
+            return $this->redirectToRoute('read');
+        }
+        //1.c
+        return $this->render('@Abonnement/AbonnementExtra/update.html.twig', array(
+            'form'=>$form->createView()
+        ));
+    }
+}

@@ -1,0 +1,75 @@
+<?php
+
+namespace AbonnementBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Abonnement
+ *
+ * @ORM\Table(name="abonnement")
+ * @ORM\Entity
+ */
+class Abonnement
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
+     */
+    private $prenom;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="N_carteMembre", type="integer", nullable=false)
+     */
+    private $nCartemembre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="duree_abonnement", type="string", length=255, nullable=false)
+     */
+    private $dureeAbonnement;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pack", type="string", length=255, nullable=false)
+     */
+    private $pack;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mode_paiement", type="string", length=255, nullable=false)
+     */
+    private $modePaiement;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="validite", type="integer", nullable=false)
+     */
+    private $validite;
+
+
+}
+
