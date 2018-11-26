@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+{% block content %}
+<center>
+    <h1> Liste des abonnements</h1>
+    <table border="1">
+        <tr>
+            <th>N_carteMembre</th>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>duree_abonnement</th>
+            <th>pack</th>
+            <th>mode_paiement</th>
+            <th>validite</th>
+            <th align="center" colspan="2">Action</th>
+
+        </tr>
+        {% for m in abonnement %}
+            <tr>
+                <td>{{ m.nCartemembre }}</td>
+                <td>{{ m.nom }}</td>
+                <td>{{ m.prenom }}</td>
+                <td>{{ m.dureeAbonnement }}</td>
+                <td>{{ m.pack }}</td>
+                <td>{{ m.modePaiement }}</td>
+                <td>{{ m.validite }}</td>
+                <td><a href="{{ path('update',{'nCartemembre':m.nCartemembre}) }} ">Modifier</a></td>
+                <td><a href="{{ path('delete',{'nCartemembre':m.nCartemembre}) }} ">Supprimer</a></td>
+            </tr>
+        {%endfor %}
+    </table>
+</center>
+{% endblock %}

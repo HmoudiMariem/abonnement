@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block stylesheet %}
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif|Titillium+Web|Warnes" rel="stylesheet">
+{% endblock %}
+{% block content %}
+
+<center>
+    <h1>Ajouter un abonnement</h1>
+
+    {{ form_start(f) }}
+    <input type="submit" value="Ajouter">
+    {{ form_end(f) }}
+
+</center>
+
+{% endblock %}
