@@ -1,0 +1,39 @@
+abonnement_homepage:
+    path:     /
+    defaults: { _controller: AbonnementBundle:Default:index }
+
+read:
+    path:     /readv
+    defaults: { _controller: AbonnementBundle:AbonnementCrud:read }
+
+create:
+    path:     /createv
+    defaults: { _controller: AbonnementBundle:AbonnementCrud:create }
+
+delete:
+    path:     /deletev/{nCartemembre}
+    defaults: { _controller: AbonnementBundle:AbonnementCrud:delete }
+
+update:
+    path:     /updatev/{nCartemembre}
+    defaults: { _controller: AbonnementBundle:AbonnementCrud:update }
+
+search_val:
+    path:     /search
+    defaults: { _controller: EspritParcBundle:Modele:search }
+
+read_e:
+    path:     /read
+    defaults: { _controller: AbonnementBundle:AbonnementExtraCrud:read }
+
+create_e:
+    path:     /create
+    defaults: { _controller: AbonnementBundle:AbonnementExtraCrud:create }
+
+delete_e:
+    path:     /delete/{nCartemembre}
+    defaults: { _controller: AbonnementBundle:AbonnementExtraCrud:delete }
+
+update_e:
+    path:     /update/{nCartemembre}
+    defaults: { _controller: AbonnementBundle:AbonnementExtraCrud:update }

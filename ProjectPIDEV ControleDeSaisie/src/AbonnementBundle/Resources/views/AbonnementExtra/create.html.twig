@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block content %}
+<center>
+    <h1>Ajout des abonnements</h1>
+
+    {{ form_start(f) }}
+    {{ form_widget(f) }}
+    <input class="btn btn-primary" type="submit" value="Ajouter">
+    {{ form_end(f) }}
+
+</center>
+{% endblock %}
