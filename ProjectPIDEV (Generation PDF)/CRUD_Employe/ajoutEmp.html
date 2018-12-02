@@ -1,0 +1,24 @@
+<!--------
+Dans cette page html, on va créer notre formulaire qui permet à l'utilisateur de saisir les données relatives aux employés 
+En cliquant sur le boutton "Ajouter" , les données seront envoyer à la page "ajoutemp.php" qui est déjà définit dans l'action 
+----------------->
+<html>
+    <head>
+    </head>
+    <body>
+        <center>
+            <h1>Ajouter un Employe</h1>
+            <form method="post" action="ajoutemp.php">
+                <fieldset style="width: 30%">
+                    <legend>Formulaire</legend>
+            CIN: <input type="text" name="cin"><br><br>
+            Nom: <input type="text" name="nom"><br><br>
+            Prenom: <input type="text" name="prenom"><br><br>
+            NbHeures: <input type="text" name="nbHeur"><br><br>
+            Tarif/H: <input type="text" name="tarifHoraire"><br><br>
+            <input type="submit" value="Ajouter">
+                </fieldset>
+            </form>
+        </center>
+    </body>
+</html>

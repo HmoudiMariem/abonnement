@@ -1,0 +1,47 @@
+
+    <html>
+    <head> </head>
+    <body>
+    <center>
+        <form>
+            <fieldset style="width: 30%">
+                <legend>Recherche </legend>
+                Mode Paiement : <input type="text" name="v" id="cle"> </br>
+
+            </fieldset>
+        </form>
+        <table id="t" border="2"> </table>
+    </center>
+    <script src="{{ asset ('js/jquery-2.2.3.min.js') }}"> </script>
+    <script>
+        $('#cle') .keyup(
+            function () {
+                var input=$("#cle").val();
+                $.ajax(
+                    {
+                        url:"{{ path('search_Mode') }}",
+                        type:"POST",
+                        data:{'modePaiement':input},
+                        success:function (data) {
+                            console.log(data);
+                            $.each(data,function (i,ele) {
+                                $('#t').append(
+                                    "<tr>"+
+                                    "<td>"+ele.id+"</td>"+
+                                    "<td>"+ele.nCartemembre+"</td>"+
+                                    "<td>"+ele.nom+"</td>"+
+                                    "<td>"+ele.prenom+"</td>"+
+                                    "<td>"+ele.dureeAbonnement+"</td>"+
+                                    "<td>"+ele.pack+"</td>"+
+                                    "<td>"+ele.validite+"</td>"+
+                                    "</td>"
+                                );
+                            })
+                        }
+                    }
+                )
+            }
+        )
+    </script>
+    </body>
+    </html>

@@ -1,0 +1,34 @@
+{% block title %}AbonnementBundle:Abonnement:pdf{% endblock %}
+{% block content %}
+    <h1>Welcome to the Abonnement:read page</h1>
+    <center>
+        Votre abonnement:
+        <table border="1">
+            <tr>
+                <th>N_carteMembre</th>
+                <th>nom</th>
+                <th>prenom</th>
+                <th>duree_abonnement</th>
+                <th>pack</th>
+                <th>mode_paiement</th>
+                <th>validite</th>
+                <th>prix</th>
+
+            </tr>
+
+            {% for m in abonnement %}
+                <tr>
+                    <td>{{ m.nCartemembre }}</td>
+                    <td>{{ m.nom }}</td>
+                    <td>{{ m.prenom }}</td>
+                    <td>{{ m.dureeAbonnement }}</td>
+                    <td>{{ m.pack }}</td>
+                    <td>{{ m.modePaiement }}</td>
+                    <td>{{ m.validite }}</td>
+                    <td>{{ m.prix }}</td>
+                </tr>
+            {%endfor %}
+        </table>
+    </center>
+
+{% endblock %}
