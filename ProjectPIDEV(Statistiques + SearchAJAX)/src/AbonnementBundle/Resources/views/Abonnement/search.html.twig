@@ -1,0 +1,54 @@
+{% extends "base.html.twig" %}
+{% block content %}
+
+    <html>
+    <head> </head>
+    <body>
+    <center>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+        <form>
+            <fieldset style="width: 30%">
+                <legend> <h1 style="font-family: Lobster; margin-bottom: 15px; color: red;"> Rechercher </h1></legend>
+                Mode Paiement :
+                <input type="text" name="v" id="cle"> </br>
+            </fieldset>
+        </form>
+        <div id="t"> </div>
+    </center>
+    <script src="{{ asset ('js/jquery-2.1.4.min.js') }}"> </script>
+    <script>
+        $('#cle').keyup(
+            function(){
+                var input=$("#cle").val();
+               // console.log(input);
+                console.log("here");
+                $.ajax(
+                    {
+
+                        url:"{{ path('search_Mode') }}",
+
+                        type:"POST",
+                        data:{'modePaiement':input},
+                        success:function (data) {
+                            if(input!=""){
+                            console.log('cv');
+                            var output="<table class='table table-striped custab' > "
+                                +"<tr>"+"<td>"+"N CarteMembre"+"</td>"+ "<td>"+"Nom"+"</td>"+"<td>"+"Prenom"+"</td>"+"<td>"+"Duree d'abonnement"+"</td>"+"<td>"+"Pack"+"</td>" +"</tr>";
+                            $.each(data,function (i,ele) {
+                                output += "<tr>" + "<td>" + ele.nCartemembre + "</td>" +"<td>" + ele.nom + "</td>"+"<td>" + ele.prenom + "</td>"+ "<td>" + ele.dureeAbonnement +"</td>"+"<td>" + ele.pack +"</td>" +"<tr>";
+
+                            });
+                            output+="<ul>";
+                            $('#t').html(output);
+                            }
+                            else{
+                            $("#t").html('');
+                        }
+                    }}
+                );});
+    </script>
+    </body>
+    </html>
+    {% endblock %}

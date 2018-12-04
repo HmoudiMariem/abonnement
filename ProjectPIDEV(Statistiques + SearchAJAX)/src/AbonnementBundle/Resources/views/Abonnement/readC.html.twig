@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+{% block content %}
+
+    <center>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <div style="margin-bottom: 50px; margin-top: 40px">
+            <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <h1 style="font-family: Lobster; margin-bottom: 15px; color: red;"> Mon Abonnement</h1>
+            <table class="table table-striped custab">
+                <tr>
+                    <th>N_carteMembre</th>
+                    <th class="text-center">nom</th>
+                    <th>Prenom</th>
+                    <th>Duree_abonnement</th>
+                    <th class="text-center">Pack</th>
+                    <th>Mode_paiement</th>
+                    <th>Validite</th>
+                    <th>Prix</th>
+                </tr>
+
+
+                    <tr>
+                        <td class="text-center">{{ abonnement.nCartemembre }}</td>
+                        <td class="text-center">{{ abonnement.nom }}</td>
+                        <td class="text-center">{{ abonnement.prenom }}</td>
+                        <td class="text-center">{{ abonnement.dureeAbonnement }}</td>
+                        <td>{{ abonnement.pack }}</td>
+                        <td class="text-center">{{ abonnement.modePaiement }}</td>
+                        <td class="text-center">{{ abonnement.validite }}</td>
+                        <td class="text-center">{{ abonnement.prix }}</td>
+                        <td class="text-center"></td>
+                    </tr>
+
+            </table>
+        </div>
+    </center>
+{% endblock %}

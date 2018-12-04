@@ -1,0 +1,241 @@
+{% extends "base.html.twig" %}
+{% block stylesheet %}
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif|Titillium+Web|Warnes" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <center>
+        <h1 style="font-family: Lobster; margin-bottom: 15px; color: red;">Modifier un abonnement</h1>
+        {{ form_start(form) }}
+        <h5>Nom<span style="color: red; "> *</span></h5>
+        {{ form_widget(form.nom) }}
+        <!--input type="text" class="form-control" style="margin-bottom: 20px" id="des" name="name" autofocus placeholder="Destination" required=""-->
+        <span id="nom_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="nom_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+        <br>
+        <h5>Prénom<span style="color: red; "> *</span></h5>
+        {{ form_widget(form.prenom  ) }}
+        <!--input type="text" class="form-control" style="margin-bottom: 20px" id="des" name="name" autofocus placeholder="Destination" required=""-->
+        <span id="prenom_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="prenom_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+
+        <br>
+        <h5>Durée Abonnement<span style="color: red; "> *</span></h5>
+        {{ form_widget(form.dureeAbonnement  ) }}
+        <!--input type="text" class="form-control" style="margin-bottom: 20px" id="des" name="name" autofocus placeholder="Destination" required=""-->
+        <span id="duree_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="duree_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+        <br>
+
+        <h5>Pack<span style="color: red; "> *</span></h5>
+        {{ form_widget(form.pack) }}
+        <!--input type="text" class="form-control" style="margin-bottom: 20px" id="des" name="name" autofocus placeholder="Destination" required=""-->
+        <span id="pack_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="pack_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+
+
+        <h5>Mode Paiement<span style="color: red; "> *</span></h5>
+        {{ form_widget(form.modePaiement) }}
+        <!--input type="text" class="form-control" style="margin-bottom: 20px" id="des" name="name" autofocus placeholder="Destination" required=""-->
+        <span id="modePaiement_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="modePaiement_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+
+
+        <h5>Validité<span style="color: red; "> *</span></h5>
+        {{ form_widget(form.validite) }}
+        <!--input type="text" class="form-control" style="margin-bottom: 20px" id="des" name="name" autofocus placeholder="Destination" required=""-->
+        <span id="validite_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="validite_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+        <br>
+
+        <h5>Centre d'interet<span style="color: red; "> *</span></h5>
+        {{ form_widget(form.centreinteret) }}
+        <!--input type="text" class="form-control" style="margin-bottom: 20px" id="des" name="name" autofocus placeholder="Destination" required=""-->
+        <span id="centre_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="centre_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+        <br>
+        <h5>Capacité Physique<span style="color: red; "> *</span></h5>
+        {{ form_widget(form.capacitephy) }}
+        <!--input type="text" class="form-control" style="margin-bottom: 20px" id="des" name="name" autofocus placeholder="Destination" required=""-->
+        <span id="capacite_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="capacite_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+        <br>
+
+        <h5 id="price" style="display: none">Prix</h5>
+        {{ form_widget(form.prix) }}
+        <br>
+        <br>
+        {{ form_widget(form.user) }}
+        <br>
+        <br>
+        <input id="btn" class="btn btn-primary" type="submit" value="Modifier" style="display: none">
+        <input id="btn-calc" class="btn btn-success" type="button" value="Calculer Frais">
+        <br>
+        <br>
+
+        {{ form_end(form) }}
+    </center>
+{% endblock %}
+
+
+    {% block javascripts %}
+        <script src="{{ asset('jquery-2.1.4.min.js') }}"></script>
+        <script type="text/javascript">
+
+            $('#abonnementbundle_abonnementextra_nom').keyup(function () {
+                var abon=$('#abonnementbundle_abonnementextra_nom').val();
+                if (!isNaN(abon))
+                {
+                    $("#nom_error").css("display","block");
+                    $("#nom_succ").css("display","none");
+                    $('#abonnementbundle_abonnementextra_nom').css("border","1px red solid");
+                }
+                else{
+                    $("#nom_error").css("display","none");
+                    $("#nom_succ").css("display","block");
+                    $('#abonnementbundle_abonnementextra_nom').css("border","1px green solid");
+
+                }
+            });
+
+            $('#abonnementbundle_abonnementextra_prenom').keyup(function () {
+                var abon=$('#abonnementbundle_abonnementextra_prenom').val();
+                if (!isNaN(abon))
+                {
+
+                    $("#prenom_error").css("display","block");
+                    $("#prenom_succ").css("display","none");
+                    $('#abonnementbundle_abonnementextra_prenom').css("border","1px red solid");
+
+                }
+                else{
+                    $("#prenom_error").css("display","none");
+                    $("#prenom_succ").css("display","block");
+                    $('#abonnementbundle_abonnementextra_prenom').css("border","1px green solid");
+
+                }
+
+            });
+            $('#abonnementbundle_abonnementextra_dureeAbonnement').keyup(function () {
+                var abon=$('#abonnementbundle_abonnementextra_dureeAbonnement').val();
+                if((abon!="3 mois")&&(abon!="6 mois")&&(abon!="1 an"))
+                {
+
+                    $("#duree_error").css("display","block");
+                    $("#duree_succ").css("display","none");
+                    $('#abonnementbundle_abonnementextra_dureeAbonnement').css("border","1px red solid");
+
+                }
+                else{
+                    $("#duree_error").css("display","none");
+                    $("#duree_succ").css("display","block");
+                    $('#abonnementbundle_abonnementextra_dureeAbonnement').css("border","1px green solid");
+
+                }
+
+            });
+            $('#abonnementbundle_abonnementextra_pack').keyup(function () {
+                var abon=$('#abonnementbundle_abonnementextra_pack').val();
+                if((abon!="Unique")&&(abon!="Couple")&&(abon!="Famille"))
+                {
+
+                    $("#pack_error").css("display","block");
+                    $("#pack_succ").css("display","none");
+                    $('#abonnementbundle_abonnementextra_pack').css("border","1px red solid");
+
+                }
+                else{
+                    $("#pack_error").css("display","none");
+                    $("#pack_succ").css("display","block");
+                    $('#abonnementbundle_abonnementextra_pack').css("border","1px green solid");
+
+                }
+
+            });
+            $('#abonnementbundle_abonnementextra_modePaiement').keyup(function () {
+                var abon=$('#abonnementbundle_abonnementextra_modePaiement').val();
+                if((abon!="Par chèque")&&(abon!="Especes"))
+                {
+                    $("#modePaiement_error").css("display","block");
+                    $("#modePaiement_succ").css("display","none");
+                    $('#abonnementbundle_abonnementextra_modePaiement').css("border","1px red solid");
+                }
+                else{
+                    $("#modePaiement_error").css("display","none");
+                    $("#modePaiement_succ").css("display","block");
+                    $('#abonnementbundle_abonnementextra_modePaiement').css("border","1px green solid");
+                }
+
+            });
+            $('#abonnementbundle_abonnementextra_validite').keyup(function () {
+                var abon=$('#abonnementbundle_abonnementextra_validite').val();
+                if((abon!=0)&&(abon!=1))
+                {
+                    $("#validite_error").css("display","block");
+                    $("#validite_succ").css("display","none");
+                    $('#abonnementbundle_abonnementextra_validite').css("border","1px red solid");
+                }
+                else{
+                    $("#validite_error").css("display","none");
+                    $("#validite_succ").css("display","block");
+                    $('#abonnementbundle_abonnementextra_validite').css("border","1px green solid");
+                }
+
+            });
+            $('#btn').click(function (e) {
+                if(
+                    $('#nom_error').css("display") == "block" ||
+                    $('#prenom_error').css("display") == "block" ||
+                    $('#duree_error').css("display") == "block" ||
+                    $('#pack_error').css("display") =="block" ||
+                    $('#modePaiement_error').css("display") == "block" ||
+                    $('#validite_error').css("display") == "block"
+                )
+                {
+                    alert('Veuillez verifier vos données')
+                    //$('#submit_failed').css('display','block');
+                    e.preventDefault();
+                }
+            });
+            $('#btn-calc').click(function () {
+                $('#btn').css('display','block');
+                $('#btn-calc').css('display','none');
+                $('#abonnementbundle_abonnementextra_prix').css('display','block');
+                $('#price').css('display','block');
+                var dure = $('#abonnementbundle_abonnementextra_dureeAbonnement').val();
+                var pack = $('#abonnementbundle_abonnementextra_pack').val();
+                //alert('duree: '+ dure+ ' pack: ' + pack);
+
+                if(pack == "Unique")
+                {
+                    if(dure == "3 mois")
+                        $('#abonnementbundle_abonnementextra_prix').val(120);
+                    else if(dure == "6 mois")
+                        $('#abonnementbundle_abonnementextra_prix').val(200);
+                    else if(dure == "1 an")
+                        $('#abonnementbundle_abonnementextra_prix').val(380);
+                }
+
+                else if(pack == "Couple")
+                {
+                    if(dure == "3 mois")
+                        $('#abonnementbundle_abonnementextra_prix').val(96);
+                    else if(dure == "6 mois")
+                        $('#abonnementbundle_abonnementextra_prix').val(160);
+                    else if(dure == "1 an")
+                        $('#abonnementbundle_abonnementextra_prix').val(304);
+                }
+
+                else if(pack == "Famille")
+                {
+                    if(dure == "3 mois")
+                        $('#abonnementbundle_abonnementextra_prix').val(72);
+                    else if(dure == "6 mois")
+                        $('#abonnementbundle_abonnementextra_prix').val(120);
+                    else if(dure == "1 an")
+                        $('#abonnementbundle_abonnementextra_prix').val(228);
+                }
+            });
+        </script>
+    {% endblock %}

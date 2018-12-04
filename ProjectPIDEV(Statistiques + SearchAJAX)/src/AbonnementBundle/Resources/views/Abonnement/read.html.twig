@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+{% block content %}
+
+<center>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <div style="margin-bottom: 50px; margin-top: 40px">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <h1 style="font-family: Lobster; margin-bottom: 15px; color: red;"> Liste des abonnements classiques</h1>
+    <table class="table table-striped custab">
+        <a href="{{ path('create') }}" class="btn btn-primary btn-xs pull-right" ><b>+</b> Ajouter un nouveau abonnement</a>
+        <a href="{{ path('search_Mode') }}" class="btn btn-success btn-xs pull-right" style="position: absolute;  right: 220px;"><b></b> Rechercher</a>
+        <tr>
+            <th>N_carteMembre</th>
+            <th class="text-center">nom</th>
+            <th>Prenom</th>
+            <th>Duree_abonnement</th>
+            <th class="text-center">Pack</th>
+            <th>Mode_paiement</th>
+            <th>Validite</th>
+            <th>Prix</th>
+            <th class="text-center" colspan="3">Action</th>
+        </tr>
+
+        {% for m in abonnement %}
+            <tr>
+                <td class="text-center">{{ m.nCartemembre }}</td>
+                <td class="text-center">{{ m.nom }}</td>
+                <td class="text-center">{{ m.prenom }}</td>
+                <td class="text-center">{{ m.dureeAbonnement }}</td>
+                <td>{{ m.pack }}</td>
+                <td class="text-center">{{ m.modePaiement }}</td>
+                <td class="text-center">{{ m.validite }}</td>
+                <td class="text-center">{{ m.prix }}</td>
+ <td class="text-center">
+  <a class='btn btn-info btn-xs'  href="{{ path('update',{'nCartemembre':m.nCartemembre}) }} "><span class="glyphicon glyphicon-edit"></span> Modifier</a><a href="{{ path('delete',{'nCartemembre':m.nCartemembre}) }} " class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-remove"></span> Supprimer</a><a  href="{{ path('sandbox_pdfexample',{'nCartemembre':m.nCartemembre}) }}"class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-file"></span> Imprimer</a></td>
+            </tr>
+        {%endfor %}
+    </table>
+    </div>
+</center>
+{% endblock %}

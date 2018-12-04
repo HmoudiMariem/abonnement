@@ -1,0 +1,34 @@
+{% block title %}AbonnementBundle:Abonnementextra:pdf{% endblock %}
+{% block content %}
+    <h1>Welcome to the Abonnement:read page</h1>
+    <center>
+        Votre abonnement:
+        <table border="1">
+             <tr>
+                    <th>N_carteMembre</th>
+                    <th class="text-center">nom</th>
+                    <th>Prenom</th>
+                    <th>Duree_abonnement</th>
+                    <th class="text-center">pack</th>
+                    <th>Mode_paiement</th>
+                    <th>Validite</th>
+                    <th>Centre d'interet</th>
+                    <th>Capacité Physique</th>
+                    <th>prix</th>
+                </tr>
+                {% for m in abonnementextra %}
+                    <tr>
+                        <td class="text-center">{{ m.nCartemembre }}</td>
+                        <td class="text-center">{{ m.nom }}</td>
+                        <td class="text-center">{{ m.prenom }}</td>
+                        <td class="text-center">{{ m.dureeAbonnement }}</td>
+                        <td>{{ m.pack }}</td>
+                        <td class="text-center">{{ m.modePaiement }}</td>
+                        <td class="text-center">{{ m.validite }}</td>
+                        <td class="text-center">{{ m.centreinteret }}</td>
+                        <td class="text-center">{{ m.capacitephy }}</td>
+                        <td class="text-center">{{ m.prix }}</td>
+                         </tr>
+                {%endfor %}
+        </table>
+{% endblock %}
